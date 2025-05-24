@@ -1,34 +1,27 @@
 ---
-name: Custom issue template
-about: Template para Crear Issues
-title: ''
-labels: documentation
+name: Historia de Usuario
+about: Crear una historia de usuario siguiendo la plantilla estándar
+title: "[HU] Título descriptivo"
+labels: historia-usuario
 assignees: ''
 
 ---
 
-**ISUUES**
-name: Nueva tarea
-about: Plantilla para agregar nuevas tareas al proyecto
-title: '[Tarea]: '
-labels: tarea
-assignees: ''
+### Historia de Usuario
+
+**Como** [tipo de usuario]  
+**Quiero** [una funcionalidad específica]  
+**Para que** [beneficio claro]
 
 ---
 
-## Descripción
-Describir claramente la tarea a realizar.
+### Criterios de Aceptación ✅
+- [ ] Criterio 1
+- [ ] Criterio 2
 
-## Objetivo
-¿Cuál es el resultado esperado o propósito de esta tarea?
+---
 
-## Pasos
-- [ ] Paso 1
-- [ ] Paso 2
-- [ ] Paso 3
-
-## Recursos adicionales
-Enlaces, documentos, referencias, etc.
-
-## Notas
-Comentarios adicionales o contexto relevante.
+### Definición de Terminado (DoD) ✅
+- [ ] Código en repositorio
+- [ ] Documentación actualizada
+- [ ] Pruebas realizadas
