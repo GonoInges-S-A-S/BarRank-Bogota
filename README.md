@@ -1,10 +1,43 @@
-# Nuxt Minimal Starter
+# BarRank Bogota
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+API REST en Node.js para gestionar y consultar rankings de bares en Bogotá.
 
-## Setup
 
-Make sure to install dependencies:
+
+## Descripción
+
+BarRank Bogota es una API REST que permite:
+
+- Añadir nuevos bares  
+- Consultar y mostrar ranking por calificación  
+- Editar o eliminar registros  
+- Obtener lista de bares ordenada por rating
+
+---
+
+## Requisitos
+- Node.js v20.24.0
+- npm o yarn  
+- Base de datos MySql
+- Nuxt js, tailwind
+
+---
+
+## Instalación
+
+```bash
+
+git clone https://github.com/GonoInges-S-A-S/BarRank-Bogota.git
+
+# 2. Entra al directorio
+cd BarRank-Bogota
+
+# 3. Instala dependencias
+npm install
+# o con yarn:
+yarn install
+```
+Nuxt:
 
 ```bash
 # npm
@@ -15,61 +48,54 @@ pnpm install
 
 # yarn
 yarn install
-
 # bun
 bun install
 ```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## Configuración
+Crea un archivo .env en la raíz con las variables:
 
 ```bash
-# npm
+PORT=xxxx
+DB_URI=tu_conexion_a_base_de_datos
+API_KEY=clave_secreta_opcional
+Ajusta según tu entorno local o de producción.
+```
+
+## Ejecución
+
+```bash
+# Inicia en modo desarrollo
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
+# o
 yarn dev
-
-# bun
-bun run dev
+La API correrá en http://localhost:3000 (o el puerto del .env).
 ```
 
-## Production
+## Endpoints
 
-Build the application for production:
+| Método | Ruta               | Descripción                         |
+| :----: | ------------------ | ----------------------------------- |
+|   GET  | `/bars`            | Lista todos los bares               |
+|   GET  | `/bars/:id`        | Muestra un bar específico por ID    |
+|  POST  | `/bars`            | Crea un nuevo bar                   |
+|   PUT  | `/bars/:id`        | Actualiza los datos de un bar       |
+| DELETE | `/bars/:id`        | Elimina un bar                      |
+|   GET  | `/bars/top`        | Bares ordenados por calificación    |
+|   GET  | `/bars/city/:city` | Bares filtrados por ciudad (Bogotá) |
 
+
+## Ejemplo
+Crear un bar
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+curl -X POST http://localhost:3000/bars \
+  -H "Content-Type: application/json" \
+  -d '{
+        "name": "Bar La Candelaria",
+        "rating": 4.8,
+        "location": "Bogotá"
+      }'
 ```
 
-Locally preview production build:
 
-```bash
-# npm
-npm run preview
 
-# pnpm
-pnpm preview
 
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
